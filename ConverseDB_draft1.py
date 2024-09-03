@@ -4,7 +4,7 @@ import os
 import logging
 from langgraph.graph import StateGraph, END
 from langchain_huggingface import HuggingFaceEndpoint
-from langchain.agents.agent_toolkits import SQLDatabaseToolkit
+from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from typing import TypedDict, Optional, Annotated, List, Literal
 from langchain_community.utilities import SQLDatabase
 from langchain_core.prompts import ChatPromptTemplate
@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI
 import sqlalchemy.exc
 from langgraph.graph.state import CompiledStateGraph
 logging.basicConfig(level=logging.INFO)
-load_dotenv()
+load_dotenv(dotenv_path='tokens.env')
 
 dbname = os.getenv('DB_NAME')
 user = os.getenv('DB_USER')
